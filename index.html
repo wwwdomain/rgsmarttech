@@ -1,0 +1,978 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RG Smart Tech | Premium AI & IT Solutions</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        cyberBlue: '#00C8FF',
+                        cyberNavy: '#081B33',
+                        cyberBlack: '#050505',
+                        silverGrey: '#D9D9D9',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Orbitron', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        body {
+            background-color: #050505;
+            overflow-x: hidden !important;
+        }
+
+        /* Premium Glassmorphic Cards with Magnetic Glow Shadows */
+        .glass-card {
+            background: rgba(8, 27, 51, 0.4);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(0, 200, 255, 0.1);
+            box-shadow: 0 15px 35px -5px rgba(0, 0, 0, 0.7);
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .glass-card:hover {
+            border-color: rgba(0, 200, 255, 0.5);
+            box-shadow: 0 25px 50px -10px rgba(0, 200, 255, 0.25);
+            transform: translateY(-6px) scale(1.02);
+        }
+
+        .neon-text-glow {
+            text-shadow: 0 0 15px rgba(0, 200, 255, 0.6);
+        }
+
+        /* Custom Dynamic Scrollbar Elements */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #050505;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #081B33;
+            border-radius: 10px;
+            transition: background 0.3s;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #00C8FF;
+        }
+
+        /* Seamless Customer Fade-In Reveal Effect */
+        .reveal-element {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal-element.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (max-width: 1023px) {
+            .mobile-spacer {
+                padding-top: 45vh;
+            }
+        }
+    </style>
+</head>
+<body class="text-gray-200 font-sans selection:bg-cyberBlue selection:text-black">
+
+    <!-- Preloader Engine Overlay -->
+    <div id="preloader" class="fixed inset-0 bg-[#050505] z-[99999] flex flex-col items-center justify-center transition-opacity duration-700">
+        <div class="relative w-24 h-24 mb-6">
+            <div class="absolute inset-0 rounded-full border-2 border-t-cyberBlue border-r-transparent border-b-transparent border-l-transparent animate-spin" style="animation-duration: 0.8s;"></div>
+            <div class="absolute inset-2 rounded-full border border-b-purple-500 border-t-transparent border-r-transparent border-l-transparent animate-spin" style="animation-direction: reverse; animation-duration: 1.2s;"></div>
+            <div class="absolute inset-0 flex items-center justify-center font-display text-xs font-bold tracking-widest text-cyberBlue">RG</div>
+        </div>
+        <h3 class="font-display text-[10px] font-bold tracking-widest text-transparent bg-clip-text bg-gradient-to-r from-cyberBlue to-purple-400">INITIALIZING SECURE SYSTEMS</h3>
+    </div>
+
+    <!-- Live Toast System Notification Element -->
+    <div id="toast-notification" class="fixed top-6 right-6 z-[9999] transform translate-x-72 opacity-0 transition-all duration-500 ease-out flex items-center gap-3 bg-cyberNavy/90 border border-green-500 text-white px-5 py-3.5 rounded-xl backdrop-blur-md shadow-[0_0_30px_rgba(34,197,94,0.2)]">
+        <i class="fa-solid fa-circle-check text-green-400 text-base"></i>
+        <div class="flex flex-col">
+            <span class="text-xs font-bold tracking-wide uppercase">System Diagnostic</span>
+            <span id="toast-message" class="text-[11px] text-gray-400 font-light mt-0.5">Transmission successful.</span>
+        </div>
+    </div>
+
+    <!-- Background 3D Matrix Layer Viewport -->
+    <div id="webgl-container" class="fixed top-0 left-0 w-full h-screen z-0 pointer-events-none"></div>
+
+    <!-- Premium Glow Header Interface Menu -->
+    <header class="fixed top-0 left-0 w-full z-50 bg-[#050505]/75 backdrop-blur-lg border-b border-white/5 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+            <a href="#" class="flex items-center gap-3 group z-50">
+                <div class="w-9 h-9 rounded-lg bg-gradient-to-br from-cyberBlue to-purple-600 p-[1px] group-hover:rotate-12 transition-transform duration-300">
+                    <div class="w-full h-full bg-cyberBlack rounded-lg flex items-center justify-center">
+                        <span class="font-display font-extrabold text-xs text-cyberBlue">RG</span>
+                    </div>
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-display text-sm font-bold tracking-widest text-white transition-colors group-hover:text-cyberBlue">RG SMART TECH</span>
+                    <span class="text-[8px] text-gray-400 tracking-wider font-semibold">FUTURE DIGITAL ARCHITECTURE</span>
+                </div>
+            </a>
+            
+            <nav class="hidden lg:flex items-center gap-8 text-xs font-semibold tracking-wider text-gray-300">
+                <a href="#hero" class="hover:text-cyberBlue transition-colors relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[1px] after:bg-cyberBlue hover:after:w-full after:transition-all">HOME</a>
+                <a href="#services" class="hover:text-cyberBlue transition-colors relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[1px] after:bg-cyberBlue hover:after:w-full after:transition-all">SERVICES</a>
+                <a href="#features" class="hover:text-cyberBlue transition-colors relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[1px] after:bg-cyberBlue hover:after:w-full after:transition-all">CAPABILITIES</a>
+                <a href="#about" class="hover:text-cyberBlue transition-colors relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[1px] after:bg-cyberBlue hover:after:w-full after:transition-all">ENTERPRISE</a>
+                <a href="#contact" class="hover:text-cyberBlue transition-colors relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[1px] after:bg-cyberBlue hover:after:w-full after:transition-all">PORTAL</a>
+            </nav>
+
+            <div class="flex items-center gap-4">
+                <button onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})" class="hidden sm:inline-block px-5 py-2.5 rounded-full bg-cyberBlue/10 hover:bg-cyberBlue/20 border border-cyberBlue/20 hover:border-cyberBlue/50 text-[10px] font-bold tracking-widest text-cyberBlue shadow-[0_0_15px_rgba(0,200,255,0.05)] hover:shadow-[0_0_20px_rgba(0,200,255,0.2)] transition-all duration-300">
+                    INITIATE CONNECT
+                </button>
+                
+                <button id="mobile-menu-btn" class="lg:hidden w-10 h-10 flex flex-col items-center justify-center gap-1.5 z-50 relative focus:outline-none bg-white/5 rounded-lg border border-white/10" aria-label="Toggle Navigation Menu">
+                    <span class="w-5 h-0.5 bg-white transition-all duration-300 transform origin-center raw-line-1"></span>
+                    <span class="w-5 h-0.5 bg-white transition-all duration-300 raw-line-2"></span>
+                    <span class="w-5 h-0.5 bg-white transition-all duration-300 transform origin-center raw-line-3"></span>
+                </button>
+            </div>
+        </div>
+        <div id="scroll-progress-bar" class="w-0 h-[2px] bg-gradient-to-r from-cyberBlue via-purple-500 to-cyberBlue transition-all duration-100"></div>
+    </header>
+
+    <!-- Mobile Navigation Menu Drawer -->
+    <div id="mobile-menu-drawer" class="fixed inset-0 bg-cyberBlack/95 backdrop-blur-2xl z-40 flex flex-col items-center justify-center gap-8 text-sm font-display font-bold tracking-widest hidden opacity-0 transition-all duration-300">
+        <a href="#hero" class="mobile-nav-item text-white hover:text-cyberBlue transition-colors">HOME</a>
+        <a href="#services" class="mobile-nav-item text-white hover:text-cyberBlue transition-colors">SERVICES</a>
+        <a href="#features" class="mobile-nav-item text-white hover:text-cyberBlue transition-colors">CAPABILITIES</a>
+        <a href="#about" class="mobile-nav-item text-white hover:text-cyberBlue transition-colors">ENTERPRISE</a>
+        <a href="#contact" class="mobile-nav-item text-white hover:text-cyberBlue transition-colors">PORTAL</a>
+    </div>
+
+    <!-- Foreground Elements Matrix Wrapper -->
+    <main id="scroll-wrapper" class="relative z-20">
+
+        <!-- SECTION 1: CINEMATIC HERO -->
+        <section id="hero" class="min-h-screen flex items-center px-6 md:px-12 lg:px-24">
+            <div class="max-w-7xl w-full grid grid-cols-1 lg:grid-cols-2 items-center gap-12 pointer-events-none">
+                <div class="pointer-events-auto z-10 flex flex-col justify-center reveal-element">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-cyberBlue/20 bg-cyberBlue/5 mb-6 self-start animate-pulse">
+                        <span class="w-1.5 h-1.5 rounded-full bg-cyberBlue"></span>
+                        <span class="text-[9px] uppercase tracking-widest text-cyberBlue font-bold">World-Class Enterprise Tech</span>
+                    </div>
+                    <h1 class="font-display tracking-tight mb-6" style="font-size: clamp(2.25rem, 5.5vw, 4.5rem); line-height: 1.05;">
+                        <span class="block text-white font-extrabold tracking-tight">INTELLIGENT</span>
+                        <span class="block text-transparent bg-clip-text bg-gradient-to-r from-cyberBlue via-purple-400 to-white font-black">INFRASTRUCTURE.</span>
+                    </h1>
+                    <p class="text-gray-400 max-w-md mb-8 text-xs sm:text-sm md:text-base font-light leading-relaxed">
+                        RG Smart Tech engineers elite computational, network, security, and web solutions. High-performance computing systems, industrial matrix setups, and custom-built corporate software platforms.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <button onclick="document.getElementById('services').scrollIntoView({behavior: 'smooth'})" class="px-6 py-3.5 rounded-full bg-gradient-to-r from-cyberBlue to-blue-600 text-black font-bold text-xs tracking-widest uppercase hover:shadow-[0_0_30px_rgba(0,200,255,0.5)] transition-all duration-300 transform hover:-translate-y-0.5">
+                            EXPLORE SERVICES <i class="fa-solid fa-arrow-right ml-2 animate-bounce horizontal"></i>
+                        </button>
+                        <button onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})" class="px-6 py-3.5 rounded-full border border-white/10 hover:border-cyberBlue/35 hover:bg-white/5 font-bold text-xs tracking-widest uppercase transition-all duration-300">
+                            SYSTEM DIAGNOSTICS
+                        </button>
+                    </div>
+                </div>
+                <div class="hidden lg:block"></div>
+            </div>
+        </section>
+
+        <!-- SECTION 2: SERVICES ARCHITECTURE -->
+        <section id="services" class="min-h-screen flex items-center px-6 md:px-12 lg:px-24 bg-gradient-to-b from-transparent via-cyberNavy/10 to-transparent">
+            <div class="max-w-7xl w-full grid grid-cols-1 lg:grid-cols-2 items-center gap-12 pointer-events-none">
+                <div class="hidden lg:block"></div>
+                <div class="pointer-events-auto z-10 flex flex-col justify-center mobile-spacer reveal-element">
+                    <span class="font-display text-xs font-semibold tracking-widest text-cyberBlue uppercase mb-3">// PORTFOLIO OF CAPABILITIES</span>
+                    <h2 class="font-display font-black tracking-tight text-white mb-8" style="font-size: clamp(1.75rem, 4.2vw, 2.75rem);">
+                        Premium <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyberBlue to-purple-400">Technology Systems</span>
+                    </h2>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 max-h-[60vh] overflow-y-auto pr-2 custom-scroll">
+                        <div class="glass-card p-5 rounded-xl flex gap-4">
+                            <div class="w-10 h-10 rounded-lg bg-cyberBlue/10 flex items-center justify-center text-cyberBlue shrink-0"><i class="fa-solid fa-laptop text-lg"></i></div>
+                            <div>
+                                <h4 class="font-bold text-white text-sm uppercase">Computer & Laptop Sales</h4>
+                                <p class="text-[11px] text-gray-400 mt-1">Premium, custom-configured workstation installations.</p>
+                            </div>
+                        </div>
+                        <div class="glass-card p-5 rounded-xl flex gap-4">
+                            <div class="w-10 h-10 rounded-lg bg-cyberBlue/10 flex items-center justify-center text-cyberBlue shrink-0"><i class="fa-solid fa-screwdriver-wrench text-lg"></i></div>
+                            <div>
+                                <h4 class="font-bold text-white text-sm uppercase">Laptop & Desktop Repair</h4>
+                                <p class="text-[11px] text-gray-400 mt-1">Chip-level diagnostics and genuine hardware restoration.</p>
+                            </div>
+                        </div>
+                        <div class="glass-card p-5 rounded-xl flex gap-4">
+                            <div class="w-10 h-10 rounded-lg bg-cyberBlue/10 flex items-center justify-center text-cyberBlue shrink-0"><i class="fa-solid fa-code text-lg"></i></div>
+                            <div>
+                                <h4 class="font-bold text-white text-sm uppercase">Website Development</h4>
+                                <p class="text-[11px] text-gray-400 mt-1">Modern corporate platforms, web systems, and custom APIs.</p>
+                            </div>
+                        </div>
+                        <div class="glass-card p-5 rounded-xl flex gap-4">
+                            <div class="w-10 h-10 rounded-lg bg-cyberBlue/10 flex items-center justify-center text-cyberBlue shrink-0"><i class="fa-solid fa-shield-halved text-lg"></i></div>
+                            <div>
+                                <h4 class="font-bold text-white text-sm uppercase">CCTV & Security Solutions</h4>
+                                <p class="text-[11px] text-gray-400 mt-1">Industrial surveillance array design and matrix deployment.</p>
+                            </div>
+                        </div>
+                        <div class="glass-card p-5 rounded-xl flex gap-4">
+                            <div class="w-10 h-10 rounded-lg bg-cyberBlue/10 flex items-center justify-center text-cyberBlue shrink-0"><i class="fa-solid fa-database text-lg"></i></div>
+                            <div>
+                                <h4 class="font-bold text-white text-sm uppercase">Secure Data Recovery</h4>
+                                <p class="text-[11px] text-gray-400 mt-1">High-grade system data restoration from critical failure nodes.</p>
+                            </div>
+                        </div>
+                        <div class="glass-card p-5 rounded-xl flex gap-4">
+                            <div class="w-10 h-10 rounded-lg bg-cyberBlue/10 flex items-center justify-center text-cyberBlue shrink-0"><i class="fa-solid fa-brain text-lg"></i></div>
+                            <div>
+                                <h4 class="font-bold text-white text-sm uppercase">AI Integration & Chatbots</h4>
+                                <p class="text-[11px] text-gray-400 mt-1">Intelligent automation solutions & Large Language Models.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 3: SYSTEM FEATURES -->
+        <section id="features" class="min-h-screen flex items-center px-6 md:px-12 lg:px-24">
+            <div class="max-w-7xl w-full grid grid-cols-1 lg:grid-cols-2 items-center gap-12 pointer-events-none">
+                <div class="pointer-events-auto z-10 flex flex-col justify-center mobile-spacer reveal-element">
+                    <span class="font-display text-xs font-semibold tracking-widest text-purple-400 uppercase mb-3">// BENCHMARK PERFORMANCE</span>
+                    <h2 class="font-display font-black tracking-tight text-white mb-8" style="font-size: clamp(1.75rem, 4.2vw, 2.75rem);">
+                        Uncompromising <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-cyberBlue">Operational Standards</span>
+                    </h2>
+
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="glass-card p-5 rounded-xl">
+                            <i class="fa-solid fa-gauge-high text-cyberBlue text-lg mb-2 block"></i>
+                            <h4 class="font-bold text-white text-xs uppercase tracking-wider">Fast Service</h4>
+                            <p class="text-[10px] text-gray-400 mt-1">Rapid response times minimizing downtime.</p>
+                        </div>
+                        <div class="glass-card p-5 rounded-xl">
+                            <i class="fa-solid fa-user-shield text-cyberBlue text-lg mb-2 block"></i>
+                            <h4 class="font-bold text-white text-xs uppercase tracking-wider">Certified Engineers</h4>
+                            <p class="text-[10px] text-gray-400 mt-1">Expert technicians trained in modern hardware architectures.</p>
+                        </div>
+                        <div class="glass-card p-5 rounded-xl">
+                            <i class="fa-solid fa-tags text-cyberBlue text-lg mb-2 block"></i>
+                            <h4 class="font-bold text-white text-xs uppercase tracking-wider">Affordable Pricing</h4>
+                            <p class="text-[10px] text-gray-400 mt-1">Clear, upfront, and highly competitive pricing models.</p>
+                        </div>
+                        <div class="glass-card p-5 rounded-xl">
+                            <i class="fa-solid fa-check-double text-cyberBlue text-lg mb-2 block"></i>
+                            <h4 class="font-bold text-white text-xs uppercase tracking-wider">Genuine Parts</h4>
+                            <p class="text-[10px] text-gray-400 mt-1">We source high-quality components directly from authorized channels.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="hidden lg:block"></div>
+            </div>
+        </section>
+
+        <!-- SECTION 4: ENTERPRISE INFO & METRICS -->
+        <section id="about" class="min-h-screen flex items-center px-6 md:px-12 lg:px-24 bg-gradient-to-b from-transparent via-cyberNavy/5 to-transparent">
+            <div class="max-w-7xl w-full grid grid-cols-1 lg:grid-cols-2 items-center gap-12 pointer-events-none">
+                <div class="hidden lg:block"></div>
+                <div class="pointer-events-auto z-10 flex flex-col justify-center mobile-spacer reveal-element">
+                    <span class="font-display text-xs font-semibold tracking-widest text-cyberBlue uppercase mb-3">// ENTERPRISE INTEGRITY</span>
+                    <h2 class="font-display font-black tracking-tight text-white mb-6" style="font-size: clamp(1.75rem, 4.2vw, 2.75rem);">
+                        Empowering Growth, <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyberBlue to-white">Securing Futures</span>
+                    </h2>
+                    <p class="text-gray-400 font-light text-xs sm:text-sm leading-relaxed mb-8">
+                        Over the last decade, RG Smart Tech has served as a technological pillar for corporate, industrial, and residential sectors. We bridge hardware, software, and secure cloud operations under a unified methodology.
+                    </p>
+
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="p-5 border-l-2 border-cyberBlue bg-white/5 backdrop-blur-sm rounded-r-xl transition-all hover:bg-white/10">
+                            <div class="font-display font-black text-2xl sm:text-3xl text-white">10+</div>
+                            <div class="text-[10px] text-gray-500 uppercase tracking-widest mt-1">Years Operations</div>
+                        </div>
+                        <div class="p-5 border-l-2 border-cyberBlue bg-white/5 backdrop-blur-sm rounded-r-xl transition-all hover:bg-white/10">
+                            <div class="font-display font-black text-2xl sm:text-3xl text-white">1000+</div>
+                            <div class="text-[10px] text-gray-500 uppercase tracking-widest mt-1">Happy Customers</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 5: DEVICE CONTROL CONSOLE -->
+        <section id="portal" class="min-h-screen flex items-center px-6 md:px-12 lg:px-24">
+            <div class="max-w-7xl w-full grid grid-cols-1 lg:grid-cols-2 items-center gap-12 pointer-events-none">
+                <div class="pointer-events-auto z-10 flex flex-col justify-center mobile-spacer reveal-element">
+                    <span class="font-display text-xs font-semibold tracking-widest text-cyberBlue uppercase mb-3">// DYNAMIC OVERRIDES</span>
+                    <h2 class="font-display font-black tracking-tight text-white mb-6" style="font-size: clamp(1.75rem, 4.2vw, 2.75rem);">
+                        Device Display <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyberBlue to-purple-400">Control Console</span>
+                    </h2>
+                    <p class="text-gray-400 font-light text-xs sm:text-sm mb-8">
+                        Interact with the controls below to directly alter the active diagnostic display running on the 3D laptop's virtual screen matrix.
+                    </p>
+
+                    <div class="grid grid-cols-2 gap-4">
+                        <button onclick="setScreenMode('assistant')" class="glass-card py-4 px-5 rounded-xl flex items-center gap-3 text-left">
+                            <span class="w-2 h-2 rounded-full bg-cyberBlue block animate-ping"></span>
+                            <div>
+                                <h5 class="font-display font-bold text-[9px] text-white uppercase tracking-wider">AI ASSISTANT</h5>
+                                <p class="text-[9px] text-gray-500">Intelligent UI stream</p>
+                            </div>
+                        </button>
+                        <button onclick="setScreenMode('diagnostics')" class="glass-card py-4 px-5 rounded-xl flex items-center gap-3 text-left">
+                            <span class="w-2 h-2 rounded-full bg-yellow-400 block animate-ping"></span>
+                            <div>
+                                <h5 class="font-display font-bold text-[9px] text-white uppercase tracking-wider">DIAGNOSTICS</h5>
+                                <p class="text-[9px] text-gray-500">Live operational loads</p>
+                            </div>
+                        </button>
+                        <button onclick="setScreenMode('matrix')" class="glass-card py-4 px-5 rounded-xl flex items-center gap-3 text-left">
+                            <span class="w-2 h-2 rounded-full bg-purple-400 block animate-ping"></span>
+                            <div>
+                                <h5 class="font-display font-bold text-[9px] text-white uppercase tracking-wider">DIGITAL RAIN</h5>
+                                <p class="text-[9px] text-gray-500">Matrix grid update</p>
+                            </div>
+                        </button>
+                        <button onclick="setScreenMode('lockdown')" class="glass-card py-4 px-5 rounded-xl flex items-center gap-3 text-left">
+                            <span class="w-2 h-2 rounded-full bg-red-500 block animate-ping"></span>
+                            <div>
+                                <h5 class="font-display font-bold text-[9px] text-white uppercase tracking-wider">ENCRYPTION</h5>
+                                <p class="text-[9px] text-gray-500">Secure firewall loop</p>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+                <div class="hidden lg:block"></div>
+            </div>
+        </section>
+
+        <!-- SECTION 6: INTERACTIVE SECURED PORTAL -->
+        <section id="contact" class="min-h-screen flex items-center px-6 md:px-12 lg:px-24">
+            <div class="max-w-7xl w-full grid grid-cols-1 lg:grid-cols-2 items-center gap-12 pointer-events-none">
+                <div class="pointer-events-auto z-10 flex flex-col justify-center mobile-spacer reveal-element">
+                    <span class="font-display text-xs font-semibold tracking-widest text-cyberBlue uppercase mb-3">// ESTABLISHED COMM PORTAL</span>
+                    <h2 class="font-display font-black tracking-tight text-white mb-6" style="font-size: clamp(1.75rem, 4.2vw, 2.75rem);">
+                        Connect with <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyberBlue to-white">Our Engineers</span>
+                    </h2>
+
+                    <div class="flex flex-wrap gap-3 mb-6">
+                        <a href="https://wa.me/917092044847" target="_blank" class="px-4 py-2.5 rounded-lg bg-green-500/10 hover:bg-green-500/20 border border-green-500/20 text-green-400 text-xs font-semibold flex items-center gap-2 transition-all duration-300 transform hover:-translate-y-0.5 shadow-[0_4px_15px_rgba(34,197,94,0.1)]">
+                            <i class="fa-brands fa-whatsapp text-sm animate-pulse"></i> WhatsApp Connect
+                        </a>
+                        <!-- Updated User Corporate Email Vector Endpoint -->
+                        <a href="mailto:rgsmarttech.in@gmail.com" class="px-4 py-2.5 rounded-lg bg-purple-500/10 hover:bg-purple-500/20 border border-purple-500/20 text-purple-400 text-xs font-semibold flex items-center gap-2 transition-all duration-300 transform hover:-translate-y-0.5 shadow-[0_4px_15px_rgba(147,51,234,0.1)]">
+                            <i class="fa-solid fa-envelope text-sm"></i> rgsmarttech.in@gmail.com
+                        </a>
+                    </div>
+
+                    <!-- Asynchronous AJAX Communications Hub Form Interface -->
+                    <form id="secure-form" class="space-y-4">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <input type="text" name="identity" required placeholder="User Identity / Company Name" class="w-full bg-[#081B33]/25 border border-white/10 rounded-lg px-4 py-3 text-xs focus:outline-none focus:border-cyberBlue focus:ring-1 focus:ring-cyberBlue transition-all text-white">
+                            <input type="email" name="email" required placeholder="Authorized Email Address" class="w-full bg-[#081B33]/25 border border-white/10 rounded-lg px-4 py-3 text-xs focus:outline-none focus:border-cyberBlue focus:ring-1 focus:ring-cyberBlue transition-all text-white">
+                        </div>
+                        <textarea name="requirements" rows="4" required placeholder="Specify technical requirements..." class="w-full bg-[#081B33]/25 border border-white/10 rounded-lg px-4 py-3 text-xs focus:outline-none focus:border-cyberBlue focus:ring-1 focus:ring-cyberBlue transition-all text-white"></textarea>
+                        
+                        <button type="submit" id="submit-btn" class="w-full py-4 rounded-lg bg-gradient-to-r from-cyberBlue to-blue-600 text-black font-bold tracking-widest text-xs uppercase hover:shadow-[0_0_25px_rgba(0,200,255,0.4)] transition-all duration-300 flex items-center justify-center gap-2">
+                            <span>TRANSMIT INITIATION</span>
+                        </button>
+                    </form>
+                </div>
+                <div class="hidden lg:block"></div>
+            </div>
+        </section>
+
+        <!-- FOOTER ELEMENT -->
+        <footer class="border-t border-white/5 bg-[#050505]/90 backdrop-blur-md py-10 px-6 lg:px-24 relative z-20">
+            <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between text-[10px] tracking-widest text-gray-600">
+                <p>© 2026 RG Smart Tech. All corporate architectures protected.</p>
+                <p class="mt-2 sm:mt-0 uppercase font-display text-cyberBlue">High Performance Realtime Matrix Connected</p>
+            </div>
+        </footer>
+
+    </main>
+
+    <!-- Essential Vector Graphic Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+        const isMobile = window.innerWidth < 1024;
+
+        // --- CUSTOM TOAST NOTIFICATION MOTOR ---
+        function showCustomToast(msg) {
+            const toast = document.getElementById('toast-notification');
+            document.getElementById('toast-message').textContent = msg;
+            toast.classList.remove('translate-x-72', 'opacity-0');
+            setTimeout(() => {
+                toast.classList.add('translate-x-72', 'opacity-0');
+            }, 4000);
+        }
+
+        // --- ASYNCHRONOUS SECURE AJAX DISPATCH HANDLING ENGINE ---
+        document.getElementById('secure-form').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const form = this;
+            const btn = document.getElementById('submit-btn');
+            const originalHTML = btn.innerHTML;
+
+            // Visual AJAX initialization triggers
+            btn.disabled = true;
+            btn.innerHTML = `<i class="fa-solid fa-circle-notch animate-spin text-sm"></i> <span>ENCRYPTING DATA PACKETS...</span>`;
+            btn.classList.add('opacity-80');
+
+            // Gather standard form parameters
+            const dataPayload = {
+                identity: form.identity.value,
+                email: form.email.value,
+                requirements: form.requirements.value
+            };
+
+            try {
+                // Performing clean mock-AJAX pipeline request architecture
+                // Switch out url target endpoint string structure parameter as desired later
+                const serverResponse = await new Promise((resolve) => {
+                    setTimeout(() => {
+                        resolve({ status: 200, message: "Secure transmission channel locked." });
+                    }, 1800);
+                });
+
+                if(serverResponse.status === 200) {
+                    // Update layout components asynchronously to display beautiful success verification matrix
+                    btn.innerHTML = `<i class="fa-solid fa-check text-sm"></i> <span>TRANSMISSION COMPLETE</span>`;
+                    btn.classList.remove('from-cyberBlue', 'to-blue-600', 'opacity-80');
+                    btn.classList.add('bg-green-500', 'text-white');
+
+                    showCustomToast("Data pipeline packages sent to rgsmarttech.in@gmail.com");
+                    form.reset();
+
+                    setTimeout(() => {
+                        btn.disabled = false;
+                        btn.innerHTML = originalHTML;
+                        btn.classList.remove('bg-green-500', 'text-white');
+                        btn.classList.add('from-cyberBlue', 'to-blue-600');
+                    }, 3500);
+                }
+            } catch (err) {
+                btn.disabled = false;
+                btn.innerHTML = `<span>TRANSMISSION ERROR</span>`;
+                showCustomToast("Pipeline sync exception encountered.");
+            }
+        });
+
+        // --- CUSTOM CUSTOMER ENTRANCE SCROLL REVEAL OBSERVER ---
+        const observerOptions = { threshold: 0.15, rootMargin: "0px 0px -50px 0px" };
+        const scrollObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+        document.querySelectorAll('.reveal-element').forEach(el => scrollObserver.observe(el));
+
+        // --- MOBILE NAV ELEMENT INTERFACES ---
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenuDrawer = document.getElementById('mobile-menu-drawer');
+        const line1 = menuBtn.querySelector('.raw-line-1');
+        const line2 = menuBtn.querySelector('.raw-line-2');
+        const line3 = menuBtn.querySelector('.raw-line-3');
+
+        menuBtn.addEventListener('click', () => {
+            const isHidden = mobileMenuDrawer.classList.contains('hidden');
+            if (isHidden) {
+                mobileMenuDrawer.classList.remove('hidden');
+                setTimeout(() => mobileMenuDrawer.classList.add('opacity-100'), 10);
+                line1.style.transform = 'rotate(45deg) translate(5px, 5px)';
+                line2.style.opacity = '0';
+                line3.style.transform = 'rotate(-45deg) translate(5px, -5px)';
+            } else {
+                mobileMenuDrawer.classList.remove('opacity-100');
+                line1.style.transform = 'none';
+                line2.style.opacity = '1';
+                line3.style.transform = 'none';
+                setTimeout(() => mobileMenuDrawer.classList.add('hidden'), 300);
+            }
+        });
+
+        document.querySelectorAll('.mobile-nav-item').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenuDrawer.classList.remove('opacity-100');
+                line1.style.transform = 'none';
+                line2.style.opacity = '1';
+                line3.style.transform = 'none';
+                setTimeout(() => mobileMenuDrawer.classList.add('hidden'), 300);
+            });
+        });
+
+        window.addEventListener('scroll', () => {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - window.innerHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.getElementById('scroll-progress-bar').style.width = scrolled + "%";
+        });
+
+        // --- 1. THREE.JS BOOTSTRAP ENVIRONMENT ---
+        const container = document.getElementById('webgl-container');
+        const scene = new THREE.Scene();
+        scene.fog = new THREE.FogExp2(0x050505, 0.06);
+
+        // NARROW FOV (24) PREVENTS PERSPECTIVE SKEWING DISPLACEMENT LOOKING FULLY STRAIGHT
+        const camera = new THREE.PerspectiveCamera(24, window.innerWidth / window.innerHeight, 0.1, 100);
+        camera.position.set(0, 0, 15.5);
+
+        const renderer = new THREE.WebGLRenderer({
+            antialias: !isMobile, 
+            alpha: true,
+            powerPreference: "high-performance"
+        });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.setPixelRatio(isMobile ? 1 : Math.min(window.devicePixelRatio, 2));
+        renderer.shadowMap.enabled = !isMobile;
+        renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+        renderer.toneMapping = THREE.ACESFilmicToneMapping;
+        renderer.toneMappingExposure = 1.3;
+        container.appendChild(renderer.domElement);
+
+        // --- 2. ADVANCED LIGHT MATRIX ---
+        const ambientLight = new THREE.AmbientLight(0xffffff, 0.15);
+        scene.add(ambientLight);
+
+        const keyLight = new THREE.DirectionalLight(0x00C8FF, 3.5);
+        keyLight.position.set(6, 10, 6);
+        scene.add(keyLight);
+
+        const rimLight = new THREE.DirectionalLight(0x7c3aed, 2.8);
+        rimLight.position.set(-6, -4, -4);
+        scene.add(rimLight);
+
+        const deckBacklight = new THREE.PointLight(0x00C8FF, 3.5, 3.0);
+        deckBacklight.position.set(0, 0.12, 0.2);
+        scene.add(deckBacklight);
+
+        // --- 3. CANVAS TEXTURE GRAPHICS CORE MAPPING INTERFACE ---
+        const screenCanvas = document.createElement('canvas');
+        screenCanvas.width = 1024;
+        screenCanvas.height = 640;
+        const screenCtx = screenCanvas.getContext('2d');
+        const screenTexture = new THREE.CanvasTexture(screenCanvas);
+
+        let screenMode = 'assistant';
+        let ticker = 0;
+
+        const matrixColumns = Math.floor(screenCanvas.width / 16);
+        const matrixDrops = Array(matrixColumns).fill(1);
+
+        function updateScreenCanvas() {
+            ticker++;
+            if (screenMode === 'matrix') {
+                screenCtx.fillStyle = 'rgba(5, 10, 18, 0.16)'; 
+                screenCtx.fillRect(0, 0, screenCanvas.width, screenCanvas.height);
+            } else {
+                screenCtx.fillStyle = '#050a12';
+                screenCtx.fillRect(0, 0, screenCanvas.width, screenCanvas.height);
+            }
+
+            if (screenMode !== 'matrix') {
+                screenCtx.strokeStyle = 'rgba(0, 200, 255, 0.04)';
+                screenCtx.lineWidth = 1;
+                for (let i = 0; i < screenCanvas.height; i += 16) {
+                    screenCtx.beginPath();
+                    screenCtx.moveTo(0, i);
+                    screenCtx.lineTo(screenCanvas.width, i);
+                    screenCtx.stroke();
+                }
+            }
+
+            if (screenMode === 'assistant') {
+                const cx = screenCanvas.width / 2;
+                const cy = screenCanvas.height / 2 - 20;
+                const scaleRad = 110 + Math.sin(ticker * 0.05) * 10;
+
+                screenCtx.strokeStyle = '#00C8FF';
+                screenCtx.lineWidth = 4;
+                screenCtx.beginPath();
+                screenCtx.arc(cx, cy, scaleRad, 0, Math.PI * 2);
+                screenCtx.stroke();
+
+                screenCtx.fillStyle = '#ffffff';
+                screenCtx.font = 'bold 38px "Orbitron", sans-serif';
+                screenCtx.textAlign = 'center';
+                screenCtx.textBaseline = 'middle';
+                screenCtx.fillText('RG SMART TECH', cx, cy);
+
+                screenCtx.fillStyle = '#00C8FF';
+                screenCtx.font = '14px "Orbitron", sans-serif';
+                screenCtx.fillText('SECURE INFRASTRUCTURE ENGINE ACTIVE', cx, cy + 35);
+            }
+            else if (screenMode === 'diagnostics') {
+                screenCtx.fillStyle = '#00C8FF';
+                screenCtx.font = 'bold 24px "Orbitron", sans-serif';
+                screenCtx.textAlign = 'left';
+                screenCtx.fillText('> COMPUTE PIPELINES NODE ONLINE', 60, 80);
+
+                const stats = [
+                    `SYSTEM FREQUENCY LAYER: STABLE AT ${4.9 + Math.sin(ticker * 0.08) * 0.1} GHz`,
+                    `ASYNC DATA STREAM PIPELINE: ACTIVE COROUTINES EXECUTING`,
+                    `SURVEILLANCE FIREWALL LOOP: 100% OPERATIONAL`,
+                    `MAIL TERMINAL TARGET ROUTE: rgsmarttech.in@gmail.com`,
+                    `_`
+                ];
+                stats.forEach((line, idx) => {
+                    screenCtx.fillStyle = idx === 4 ? '#7c3aed' : 'rgba(255, 255, 255, 0.85)';
+                    screenCtx.font = '16px monospace';
+                    if (idx === 4 && ticker % 30 < 15) return; 
+                    screenCtx.fillText(line, 60, 160 + (idx * 55));
+                });
+            }
+            else if (screenMode === 'matrix') {
+                screenCtx.fillStyle = '#00C8FF';
+                screenCtx.font = 'bold 15px monospace';
+                screenCtx.textAlign = 'left';
+
+                for (let i = 0; i < matrixDrops.length; i++) {
+                    const character = String.fromCharCode(0x30A0 + Math.random() * 96);
+                    const posX = i * 16;
+                    const posY = matrixDrops[i] * 16;
+                    screenCtx.fillText(character, posX, posY);
+
+                    if (posY > screenCanvas.height && Math.random() > 0.98) {
+                        matrixDrops[i] = 0;
+                    }
+                    matrixDrops[i]++;
+                }
+            }
+            else if (screenMode === 'lockdown') {
+                screenCtx.fillStyle = '#ffffff';
+                screenCtx.font = 'bold 34px "Orbitron", sans-serif';
+                screenCtx.textAlign = 'center';
+                screenCtx.fillText('ENCRYPTION LOCK OVERRIDE', screenCanvas.width / 2, screenCanvas.height / 2 - 20);
+
+                screenCtx.fillStyle = '#e11d48'; 
+                screenCtx.font = '15px "Orbitron", sans-serif';
+                screenCtx.fillText('REMOTE TRANSFERS ENCRYPTED SECURELY', screenCanvas.width / 2, screenCanvas.height / 2 + 25);
+            }
+            screenTexture.needsUpdate = true;
+        }
+
+        function setScreenMode(mode) {
+            screenMode = mode;
+        }
+
+        // --- 4. 3D LAPTOP HARDWARE GEOMETRY ARCHITECTURE ---
+        const laptopGroup = new THREE.Group();
+        const premiumSilverAlloy = new THREE.MeshStandardMaterial({
+            color: 0xD9D9D9, metalness: 0.95, roughness: 0.15, clearcoat: 0.3
+        });
+        const darkBorderPlastic = new THREE.MeshStandardMaterial({ color: 0x0a0c10, roughness: 0.5 });
+
+        const globalGroup = new THREE.Group();
+        const gsapGroup = new THREE.Group();
+        const mouseGroup = new THREE.Group();
+
+        scene.add(globalGroup);
+        globalGroup.add(gsapGroup);
+        gsapGroup.add(mouseGroup);
+        mouseGroup.add(laptopGroup);
+
+        // Ambient Aura Target Ring
+        const ringGeom = new THREE.RingGeometry(2.6, 2.72, 64);
+        const ringMat = new THREE.MeshBasicMaterial({ color: 0x00C8FF, side: THREE.DoubleSide, transparent: true, opacity: 0.18 });
+        const holoRing = new THREE.Mesh(ringGeom, ringMat);
+        holoRing.rotation.x = Math.PI / 2;
+        holoRing.position.y = -0.08;
+        gsapGroup.add(holoRing);
+
+        // Lower System Chassis Base Mesh Setup
+        const mainBaseGeom = new THREE.BoxGeometry(4.2, 0.09, 2.8);
+        const mainBaseMesh = new THREE.Mesh(mainBaseGeom, premiumSilverAlloy);
+        mainBaseMesh.position.set(0, -0.045, 0); 
+        laptopGroup.add(mainBaseMesh);
+
+        // Reccesed Input Keypad Matrix Plate Plate
+        const trayGeom = new THREE.BoxGeometry(3.8, 0.002, 1.45);
+        const trayMat = new THREE.MeshStandardMaterial({ color: 0x0b0d11, roughness: 0.6 });
+        const trayMesh = new THREE.Mesh(trayGeom, trayMat);
+        trayMesh.position.set(0, 0.0011, -0.45);
+        laptopGroup.add(trayMesh);
+
+        // High Performance Instanced Keycap Array
+        const rowsCount = 5, colsCount = 14, totalKeys = rowsCount * colsCount;
+        const singleKeyGeom = new THREE.BoxGeometry(0.22, 0.02, 0.19);
+        const singleKeyMat = new THREE.MeshStandardMaterial({ color: 0x08090c, roughness: 0.4,emissive: 0x00C8FF,emissiveIntensity: 0.6 });
+        const instancedKeysMesh = new THREE.InstancedMesh(singleKeyGeom, singleKeyMat, totalKeys);
+
+        let keyIndex = 0;
+        const keyObjectDummy = new THREE.Object3D();
+        for (let r = 0; r < rowsCount; r++) {
+            for (let c = 0; c < colsCount; c++) {
+                if (r === 4 && c >= 4 && c <= 9) continue; 
+                keyObjectDummy.position.set(-1.68 + c * 0.26, 0.012, -0.45 + (r * 0.26) - 0.52);
+                keyObjectDummy.updateMatrix();
+                instancedKeysMesh.setMatrixAt(keyIndex++, keyObjectDummy.matrix);
+            }
+        }
+        laptopGroup.add(instancedKeysMesh);
+
+        // Lower Chassis Hinge Assembly Module
+        const cylindricalHingeGeom = new THREE.CylinderGeometry(0.045, 0.045, 4.0, 32);
+        const cylindricalHingeMat = new THREE.MeshStandardMaterial({ color: 0x08090d, metalness: 0.8 });
+        const hingeMesh = new THREE.Mesh(cylindricalHingeGeom, cylindricalHingeMat);
+        hingeMesh.rotation.z = Math.PI / 2;
+        hingeMesh.position.set(0, 0.046, -1.38);
+        laptopGroup.add(hingeMesh);
+
+        // Upper Screen Lid Pivoting Core Component Node
+        const lidGroup = new THREE.Group();
+        lidGroup.position.set(0, 0.046, -1.38); 
+        laptopGroup.add(lidGroup);
+
+        const outerLidGeom = new THREE.BoxGeometry(4.2, 0.04, 2.8);
+        const outerLidMesh = new THREE.Mesh(outerLidGeom, premiumSilverAlloy);
+        outerLidMesh.position.set(0, 0.02, 1.4); 
+        lidGroup.add(outerLidMesh);
+
+        const bezelFrameGeom = new THREE.BoxGeometry(4.16, 0.002, 2.76);
+        const bezelFrameMesh = new THREE.Mesh(bezelFrameGeom, darkBorderPlastic);
+        bezelFrameMesh.position.set(0, -0.0201, 1.4);
+        lidGroup.add(bezelFrameMesh);
+
+        const screenPlaneGeom = new THREE.PlaneGeometry(4.1, 2.7);
+        screenPlaneGeom.rotateX(Math.PI / 2); 
+        const screenPlaneMat = new THREE.MeshBasicMaterial({ map: screenTexture, side: THREE.DoubleSide });
+        const screenPlaneMesh = new THREE.Mesh(screenPlaneGeom, screenPlaneMat);
+        screenPlaneMesh.position.set(0, -0.0212, 1.4);
+        lidGroup.add(screenPlaneMesh);
+
+        // Set baseline inclination open angle properties
+        lidGroup.rotation.x = -1.85; 
+
+        // --- 5. FLOATING COMPUTE PARTICLE ATMOSPHERE MATRIX ---
+        const particleTotal = isMobile ? 50 : 200;
+        const particleArrayGeom = new THREE.BufferGeometry();
+        const positions = new Float32Array(particleTotal * 3);
+        for(let i = 0; i < particleTotal * 3; i += 3) {
+            positions[i] = (Math.random() - 0.5) * 15;
+            positions[i+1] = (Math.random() - 0.5) * 15;
+            positions[i+2] = (Math.random() - 0.5) * 15;
+        }
+        particleArrayGeom.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+        const particleTextureMat = new THREE.PointsMaterial({
+            size: isMobile ? 0.05 : 0.03, color: 0x00C8FF, transparent: true, opacity: 0.3
+        });
+        const dynamicHoloParticles = new THREE.Points(particleArrayGeom, particleTextureMat);
+        scene.add(dynamicHoloParticles);
+
+        // --- 6. GSAP CHOREOGRAPHY CHANNELS (ROTATIONS STATICALLY SECURED AT ZERO) ---
+        const responsiveMediaMatch = gsap.matchMedia();
+        responsiveMediaMatch.add({
+            isDesktop: "(min-width: 1024px)",
+            isMobile: "(max-width: 1023px)"
+        }, (context) => {
+            const { isDesktop } = context.conditions;
+            const scrollTimeline = gsap.timeline({
+                scrollTrigger: {
+                    trigger: "#scroll-wrapper", start: "top top", end: "bottom bottom", scrub: 1.0,
+                }
+            });
+
+            // Y and Z rotations are locked strictly to 0 to provide a perfectly flat, distortion-free straight orientation
+            if (isDesktop) {
+                scrollTimeline.to(gsapGroup.position, { z: 0.5, duration: 2.5 })
+                  .to(gsapGroup.rotation, { x: 0.15, y: 0, z: 0, duration: 2.5 }, "<")
+                  .to(lidGroup.rotation, { x: -1.82, duration: 2.5 }, "<");
+
+                scrollTimeline.to(gsapGroup.position, { z: 1.0, duration: 2.5 })
+                  .to(gsapGroup.rotation, { x: 0.08, y: 0, z: 0, duration: 2.5 }, "<")
+                  .to(lidGroup.rotation, { x: -1.98, duration: 2.5 }, "<");
+
+                scrollTimeline.to(gsapGroup.position, { z: 1.5, duration: 2.5 })
+                  .to(gsapGroup.rotation, { x: 0.18, y: 0, z: 0, duration: 2.5 }, "<");
+
+                scrollTimeline.to(gsapGroup.position, { z: 2.0, duration: 2.5 })
+                  .to(gsapGroup.rotation, { x: 0.1, y: 0, z: 0, duration: 2.5 }, "<");
+
+                scrollTimeline.to(gsapGroup.position, { z: 2.8, duration: 3.0 })
+                  .to(gsapGroup.rotation, { x: 0.32, y: 0, z: 0, duration: 3.0 }, "<")
+                  .to(lidGroup.rotation, { x: -0.15, duration: 3.0 }, "<");
+            } else {
+                scrollTimeline.to(gsapGroup.position, { z: 0.3, duration: 4.0 })
+                  .to(gsapGroup.rotation, { x: 0.18, y: 0, z: 0, duration: 4.0 }, "<");
+
+                scrollTimeline.to(gsapGroup.position, { z: 0.6, duration: 4.0 })
+                  .to(gsapGroup.rotation, { x: 0.12, y: 0, z: 0, duration: 4.0 }, "<");
+
+                scrollTimeline.to(gsapGroup.position, { z: 1.2, duration: 4.0 })
+                  .to(gsapGroup.rotation, { x: 0.25, y: 0, z: 0, duration: 4.0 }, "<")
+                  .to(lidGroup.rotation, { x: -0.15, duration: 4.0 }, "<");
+            }
+        });
+
+        // --- 7. FLUID SPATIAL REPOSITIONING VECTOR SYSTEMS ---
+        const sectionsLayoutMap = {
+            hero: document.querySelector('#hero .reveal-element'),
+            services: document.querySelector('#services .reveal-element'),
+            features: document.querySelector('#features .reveal-element'),
+            about: document.querySelector('#about .reveal-element'),
+            portal: document.querySelector('#portal .reveal-element'),
+            contact: document.querySelector('#contact .reveal-element')
+        };
+
+        function getSectionTargetPos(sectionId, isDesktop) {
+            const elContainer = sectionsLayoutMap[sectionId];
+            if (!elContainer) return { x: window.innerWidth / 2, y: window.innerHeight / 2 };
+
+            const rect = elContainer.getBoundingClientRect();
+            let targetX = window.innerWidth / 2;
+            let targetY = window.innerHeight / 2;
+
+            if (isDesktop) {
+                const visibleHeightAtZ0 = 2 * Math.tan((camera.fov * Math.PI) / 360) * camera.position.z;
+                const pixelRatio = window.innerHeight / visibleHeightAtZ0;
+                const modelScale = globalGroup ? globalGroup.scale.x : 1.5;
+                const laptopPixelWidth = (4.2 * modelScale) * pixelRatio;
+                const halfWidth = laptopPixelWidth / 2;
+                const targetGap = 80; 
+
+                targetY = rect.top + rect.height / 2;
+                
+                const contentCenter = rect.left + rect.width / 2;
+                if (contentCenter < window.innerWidth / 2) {
+                    targetX = rect.right + halfWidth + targetGap;
+                } else {
+                    targetX = rect.left - halfWidth - targetGap;
+                }
+            } else {
+                const scrollProgressFactor = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight || 1);
+                targetX = window.innerWidth / 2;
+                targetY = window.innerHeight * 0.32 + (Math.sin(scrollProgressFactor * Math.PI) * 35);
+            }
+            return { x: targetX, y: targetY };
+        }
+
+        function getWeightedTargetCoordinates(isDesktop) {
+            let runningWeight = 0, calculatedX = 0, calculatedY = 0;
+            const sections = ['hero', 'services', 'features', 'about', 'portal', 'contact'];
+
+            sections.forEach(id => {
+                const domNode = document.getElementById(id);
+                if (!domNode) return;
+
+                const bounds = domNode.getBoundingClientRect();
+                const frameVisibility = Math.max(0, Math.min(bounds.bottom, window.innerHeight) - Math.max(bounds.top, 0));
+                
+                if (frameVisibility > 0) {
+                    const weightVal = frameVisibility / window.innerHeight;
+                    const positionCoords = getSectionTargetPos(id, isDesktop);
+
+                    calculatedX += positionCoords.x * weightVal;
+                    calculatedY += positionCoords.y * weightVal;
+                    runningWeight += weightVal;
+                }
+            });
+
+            if (runningWeight > 0) {
+                return { x: calculatedX / runningWeight, y: calculatedY / runningWeight };
+            }
+            return { x: window.innerWidth / 2, y: window.innerHeight / 2 };
+        }
+
+        function projectPixelsTo3DVectors(screenX, screenY, targetZ = 0) {
+            const ndcX = (screenX / window.innerWidth) * 2 - 1;
+            const ndcY = -(screenY / window.innerHeight) * 2 + 1;
+            const trackingVector = new THREE.Vector3(ndcX, ndcY, 0.5).unproject(camera);
+            const directionalRay = trackingVector.sub(camera.position).normalize();
+            const intersectionDistance = (targetZ - camera.position.z) / directionalRay.z;
+            return camera.position.clone().add(directionalRay.multiplyScalar(intersectionDistance));
+        }
+
+        // --- 8. RUNTIME CORE SYSTEM FRAME LOOP ---
+        const systemClock = new THREE.Clock();
+        let frameProcessingActive = true;
+
+        document.addEventListener('visibilitychange', () => {
+            frameProcessingActive = document.visibilityState === 'visible';
+        });
+
+        function executeMainFrameUpdate() {
+            if (!frameProcessingActive) {
+                requestAnimationFrame(executeMainFrameUpdate);
+                return;
+            }
+
+            const frameDeltaTime = systemClock.getElapsedTime();
+            
+            // Kinetic levitation loop dynamics
+            mouseGroup.position.y = Math.sin(frameDeltaTime * 1.3) * 0.045;
+            dynamicHoloParticles.rotation.y = frameDeltaTime * 0.01;
+            
+            if (holoRing) holoRing.rotation.z = -frameDeltaTime * 0.12;
+
+            const desktopStateFlag = window.innerWidth >= 1024;
+            const calculatedTarget = getWeightedTargetCoordinates(desktopStateFlag);
+            const currentPlaneZ = gsapGroup.position.z;
+            const spatialWorldVector = projectPixelsTo3DVectors(calculatedTarget.x, calculatedTarget.y, currentPlaneZ);
+            
+            if (globalGroup) {
+                globalGroup.updateMatrixWorld();
+                const localizedTargetCoordinates = globalGroup.worldToLocal(spatialWorldVector.clone());
+                const dampeningFactor = desktopStateFlag ? 0.075 : 0.045;
+                
+                gsapGroup.position.x += (localizedTargetCoordinates.x - gsapGroup.position.x) * dampeningFactor;
+                gsapGroup.position.y += (localizedTargetCoordinates.y - gsapGroup.position.y) * dampeningFactor;
+            }
+
+            updateScreenCanvas();
+            renderer.render(scene, camera);
+            requestAnimationFrame(executeMainFrameUpdate);
+        }
+        requestAnimationFrame(executeMainFrameUpdate);
+
+        // --- 9. VIEWPORT SCALE & DENSITY RESOLUTION MOTOR ---
+        function handleSystemViewportResize() {
+            const screenW = window.innerWidth;
+            const screenH = window.innerHeight;
+
+            camera.aspect = screenW / screenH;
+            camera.updateProjectionMatrix();
+            renderer.setSize(screenW, screenH);
+
+            const checkMobileView = screenW < 1024;
+            renderer.setPixelRatio(checkMobileView ? 1 : Math.min(window.devicePixelRatio, 2));
+
+            let computedScaleRatio = 1;
+            if (screenW < 768) {
+                computedScaleRatio = 0.48; 
+            } else if (screenW < 1024) {
+                computedScaleRatio = 0.78; 
+            }
+            globalGroup.scale.set(computedScaleRatio, computedScaleRatio, computedScaleRatio);
+        }
+        window.addEventListener('resize', handleSystemViewportResize);
+        handleSystemViewportResize();
+
+        // Release UI layer block matrix once scripts synchronize
+        window.addEventListener('load', () => {
+            const loaderNode = document.getElementById('preloader');
+            setTimeout(() => {
+                loaderNode.classList.add('opacity-0', 'pointer-events-none');
+            }, 500);
+        });
+    </script>
+</body>
+</html>
